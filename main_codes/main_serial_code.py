@@ -1,5 +1,4 @@
 import sys
-#sys.path.insert(0,'/mnt/home/dhebarya/my_research/ford_project/main_code')
 #...This is binary Split NLDT only
 import os
 import shutil
@@ -8,10 +7,10 @@ import pickle
 import pandas as pd
 import time
 
-from iai_multiclass_classification.iai_utils.iai_dt_classes_and_funcs import Tree as IAI_Tree
+from iai_utils.iai_dt_classes_and_funcs import Tree as IAI_Tree
 
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
-from iai_multiclass_classification.main_codes.parameter_file import GlobalParameters
+from iai_utils import decision_tree_funcs as dt_funcs
+from main_codes.parameter_file import GlobalParameters
 
 global_params = GlobalParameters()
 
@@ -24,7 +23,7 @@ if __name__ == '__main__':
     #...Global Parameters...
     # data_name = 'dtlz2'
     #data_name = 'DS1' + '_modified'
-    #data_name = 'iris'
+    data_name = 'iris'
     #data_name = 'CartPole-v0_10000'
     #data_name = 'Ford1DEnv_10000'
     #data_name = 'MountainCar'# + '_balanced'#_q_values'
@@ -34,12 +33,12 @@ if __name__ == '__main__':
     #data_name = 'LunarLander-v2_tau10_10000'# + '_balanced_data'
     #data_name = 'PlanarManipulator_10000' + '_balanced_data'
     #data_name = 'PlanarManipulator_10_10000' + '_balanced_data'
-    data_name = 'PlanarManipulator_' + str(n_links) + '_' + str(torque_max) + '_10000' + '_balanced_data'
+    #data_name = 'PlanarManipulator_' + str(n_links) + '_' + str(torque_max) + '_10000' + '_balanced_data'
     #data_name = 'DS3_matlab'
     # data_name = 'cardio_dataset_10class'
     #data_name = 'ford_data_new_merged'
 
-    n_features = 2*n_links
+    n_features = 4#2*n_links
     max_depth = 4
     n_classes = 3
 
@@ -58,10 +57,10 @@ if __name__ == '__main__':
         class_dict = None
 
 
-    results_dir = os.path.join('..','results', data_name)
+    results_dir = os.path.join('..', 'results', data_name)
 
     #..load data...
-    data_file = os.path.join('..', '..', 'datasets', data_name + '.data')
+    data_file = os.path.join('..', 'datasets', data_name + '.data')
 
     my_data = pd.read_csv(data_file, header = None)
 

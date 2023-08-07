@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 import random
 
-from iai_multiclass_classification.iai_utils.factory_utils import fman
-from iai_multiclass_classification.iai_utils.factory_utils import fexp
-from iai_multiclass_classification.iai_utils.factory_utils import class_distribution
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
-from iai_multiclass_classification.iai_utils import iai_util_funcs as iai_funcs
-from iai_multiclass_classification.iai_utils import factory_utils
-from iai_multiclass_classification.main_codes.parameter_file import GlobalParameters
+from iai_utils.factory_utils import fman
+from iai_utils.factory_utils import fexp
+from iai_utils.factory_utils import class_distribution
+from iai_utils import decision_tree_funcs as dt_funcs
+from iai_utils import iai_util_funcs as iai_funcs
+from iai_utils import factory_utils
+from main_codes.parameter_file import GlobalParameters
 
 g_params = GlobalParameters()
 

@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.optimize import minimize_scalar
 import copy
-from iai_multiclass_classification.main_codes.parameter_file import GlobalParameters
+from main_codes.parameter_file import GlobalParameters
 
 g_params = GlobalParameters()
 

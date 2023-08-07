@@ -8,11 +8,11 @@ import pandas as pd
 import time
 import multiprocessing as mp
 sys.path.append(path.join('..','..'))
-from iai_multiclass_classification.iai_utils.iai_dt_classes_and_funcs import Tree as IAI_Tree
+from iai_utils.iai_dt_classes_and_funcs import Tree as IAI_Tree
 import random
 
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
-from iai_multiclass_classification.main_codes.parameter_file import GlobalParameters
+from iai_utils import decision_tree_funcs as dt_funcs
+from main_codes.parameter_file import GlobalParameters
 
 
 global_params = GlobalParameters()

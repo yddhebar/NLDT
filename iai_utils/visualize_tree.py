@@ -1,7 +1,7 @@
 import os
 #import dot2tex
 from graphviz import Digraph
-import iai_multiclass_classification.iai_utils.decision_tree_funcs as dt_funcs
+import iai_utils.decision_tree_funcs as dt_funcs
 
 
 def plot(filename, tree, file_type='pdf', view=True):
