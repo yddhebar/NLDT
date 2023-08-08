@@ -1,2 +1,4 @@
 .idea/
-.pyc
+*.pyc
+results/
+*upper_level_fitness.txt
