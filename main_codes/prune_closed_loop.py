@@ -1,10 +1,10 @@
 #...here will prune those segments of NLDT which are not operational in closed loop...
 import os
 import gym
-from iai_multiclass_classification.iai_utils import visualize_tree
+from iai_utils import visualize_tree
 import pandas as pd
 import numpy as np
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
+from iai_utils import decision_tree_funcs as dt_funcs
 import pickle
 from rl_envs import custom_envs
 import time

@@ -5,7 +5,7 @@ from pymoo.algorithms.so_genetic_algorithm import GA
 from pymoo.factory import get_termination
 from pymoo.model.problem import Problem
 from pymoo.optimize import minimize
-from iai_multiclass_classification.iai_utils.decision_tree_funcs import compute_accuracy_from_c_id
+from iai_utils.decision_tree_funcs import compute_accuracy_from_c_id
 from pymoo.model.sampling import Sampling
 
 

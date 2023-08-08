@@ -1,8 +1,8 @@
 import os
-from iai_multiclass_classification.iai_utils import visualize_tree
+from iai_utils import visualize_tree
 import pandas as pd
 import numpy as np
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
+from iai_utils import decision_tree_funcs as dt_funcs
 import pickle
 import time
 
@@ -12,7 +12,7 @@ if n_links <= 5:
 else:
     torque_max = 500 * n_links
 
-n_features = 2#2*n_links
+n_features = 4#2*n_links
 n_actions = 3
 tree_id = 0
 fine_tuned_simulations = False
@@ -32,8 +32,8 @@ fine_tuned_simulations = False
 #data_name = 'ford_data_new_merged'
 #data_name = 'CartPole-v0_10000'
 #data_name = 'Ford1DEnv_10000'
-data_name = 'MountainCar'# + '_balanced'
-#data_name = 'iris'
+#data_name = 'MountainCar'# + '_balanced'
+data_name = 'iris'
 #data_name = 'DS3_matlab'
 #testing_data_name = 'MountainCar_testing'
 #testing_data_name = 'iris'
@@ -59,7 +59,7 @@ env_name = 'PlanarManipulator' + '_' + str(n_links) + '_' + str(torque_max)
 
 if fine_tuned_simulations:
     tree_name = env_name + '_fine_tuned_from_env_depth_3' + extra_name
-
+tree_name = 'iris_classical_dt_0'
 my_tree_loc = os.path.join('..','results', data_name,tree_name + '.p')
 my_tree = pickle.load(open(my_tree_loc, 'rb'))
 
@@ -67,10 +67,10 @@ w_array = my_tree.get_weights_from_tree()
 my_tree.assign_weight_to_nodes_from_array(w_array)
 
 #..loading Data...
-data_file = os.path.join('..','..','datasets', data_name + '.data')
+data_file = os.path.join('..','datasets', data_name + '.data')
 my_data = pd.read_csv(data_file, header=None)
 
-testing_data_file = os.path.join('..','..','datasets', testing_data_name + '.data')#data_file
+testing_data_file = os.path.join('..','datasets', testing_data_name + '.data')#data_file
 testing_data = pd.read_csv(testing_data_file, header = None)
 
 

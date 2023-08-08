@@ -1,16 +1,16 @@
 import numpy as np
 import math
-from pymoo.algorithms.so_genetic_algorithm import GA
-from pymoo.algorithms.so_nelder_mead import NelderMead
+from pymoo.algorithms.soo.nonconvex.ga import GA
+from pymoo.algorithms.soo.nonconvex.nelder import NelderMead
 from pymoo.factory import get_termination
-from pymoo.model.problem import Problem
+from pymoo.core.problem import Problem
 from pymoo.optimize import minimize
-from pymoo.model.sampling import Sampling
+from pymoo.core.sampling import Sampling
 
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
-from iai_multiclass_classification.iai_ga.iai_ga_classes import Indiv
-from iai_multiclass_classification.iai_ga.iai_ga import bilevel_ga
-from iai_multiclass_classification.main_codes.parameter_file import GlobalParameters
+from iai_utils import decision_tree_funcs as dt_funcs
+from iai_ga.iai_ga_classes import Indiv
+from iai_ga.iai_ga import bilevel_ga
+from main_codes.parameter_file import GlobalParameters
 
 g_params = GlobalParameters()
 
@@ -58,7 +58,7 @@ class MySampling(Sampling):
     Randomly sample points in the real space by considering the lower and upper bounds of the problem.
     """
 
-    def __init__(self, var_type=np.float) -> None:
+    def __init__(self, var_type=float) -> None:
         super().__init__()
         self.var_type = var_type
 

@@ -6,8 +6,8 @@ import pandas as pd
 import pickle
 import sys
 sys.path.append(os.path.join('..','..'))
-from iai_multiclass_classification.iai_utils.fine_tuning_from_experience import fine_tune_dt as fine_tune_from_env
-from iai_multiclass_classification.iai_utils.fine_tuning_from_data import fine_tune_dt as fine_tune_from_data
+from iai_utils.fine_tuning_from_experience import fine_tune_dt as fine_tune_from_env
+from iai_utils.fine_tuning_from_data import fine_tune_dt as fine_tune_from_data
 import time
 from rl_envs.custom_envs import Ford1DEnv
 from rl_envs.custom_envs import PlanarSerialManipulator

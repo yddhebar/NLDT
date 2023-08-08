@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
-from iai_multiclass_classification.iai_utils import decision_tree_funcs as dt_funcs
+from iai_utils import decision_tree_funcs as dt_funcs
 import pickle
 
 max_depth = 3
