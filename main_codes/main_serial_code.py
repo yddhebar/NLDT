@@ -15,36 +15,15 @@ from main_codes.parameter_file import GlobalParameters
 global_params = GlobalParameters()
 
 if __name__ == '__main__':
-    n_links = 10#...for Planar Manipulator problem....
-    if n_links <= 5:
-        torque_max = 200*n_links#...for Planar Manipulator problem....
-    else:
-        torque_max = 400*n_links
     #...Global Parameters...
-    # data_name = 'dtlz2'
-    #data_name = 'DS1' + '_modified'
     data_name = 'iris'
-    #data_name = 'CartPole-v0_10000'
-    #data_name = 'Ford1DEnv_10000'
-    #data_name = 'MountainCar'# + '_balanced'#_q_values'
-    #data_name = 'LunarLander-v2_q_values_confident_00_10000' + '_balanced_data'
-    #data_name = 'LunarLander-v2_10000'
-    #data_name = 'LunarLander-v2_10000' + '_balanced_data'
-    #data_name = 'LunarLander-v2_tau10_10000'# + '_balanced_data'
-    #data_name = 'PlanarManipulator_10000' + '_balanced_data'
-    #data_name = 'PlanarManipulator_10_10000' + '_balanced_data'
-    #data_name = 'PlanarManipulator_' + str(n_links) + '_' + str(torque_max) + '_10000' + '_balanced_data'
-    #data_name = 'DS3_matlab'
-    # data_name = 'cardio_dataset_10class'
-    #data_name = 'ford_data_new_merged'
-
-    n_features = 4#2*n_links
-    max_depth = 4
+    n_features = 4
+    max_depth = 3
     n_classes = 3
 
     extra_name = '_' + global_params.ll_algorithm#'_' + global_params.impurity_measure
     tree_name = data_name + extra_name
-    training_data_share = 1.0
+    training_data_share = 0.9
 
     my_tree = IAI_Tree()
     min_size = 5
