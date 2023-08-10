@@ -1,9 +1,5 @@
-import numpy as np
 import pandas as pd
-import pickle
 import os
-from iai_numpy.iai_utils.factory_utils import preprocess_class_labels
-from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('TkAgg')
