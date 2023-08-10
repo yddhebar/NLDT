@@ -6,8 +6,6 @@ from iai_utils import decision_tree_funcs as dt_funcs
 import pickle
 import time
 
-n_features = 4
-
 #...Loading Tree...
 data_name = 'iris'
 testing_data_name = data_name
@@ -23,14 +21,15 @@ my_tree.assign_weight_to_nodes_from_array(w_array)
 data_file = os.path.join('..','datasets', data_name + '.data')
 my_data = pd.read_csv(data_file, header=None)
 
-testing_data_file = os.path.join('..','datasets', testing_data_name + '.data')#data_file
+#data_file
+testing_data_file = os.path.join('..','datasets', testing_data_name + '.data')
 testing_data = pd.read_csv(testing_data_file, header = None)
 
 #...Data preparation...
-features = my_data.iloc[:,:n_features]
+features = my_data.iloc[:,:-1]
 action_array = my_data.iloc[:,-1]
 
-testing_features = testing_data.iloc[:,:n_features]
+testing_features = testing_data.iloc[:,:-1]
 testing_action_array = testing_data.iloc[:,-1]
 print('Data Loaded')
 

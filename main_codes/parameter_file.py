@@ -5,6 +5,6 @@ class GlobalParameters():
         self.a_max = None#...only one term can appear...
         self.tau_impurity = 0.05
         self.selection_method = 'normal'#'cons_ratio_ad'#'cons_ratio'#
-        self.impurity_measure = 'gini'#'weighted_gini'#
+        self.impurity_measure = 'gini'
         self.loss_function_ll = 'gini'#'cross_entropy'#
-        self.ll_algorithm = 'classical'#'rga'#
+        self.ll_algorithm = 'rga'#'classical'#

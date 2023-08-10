@@ -2,7 +2,8 @@ import numpy as np
 import math
 from pymoo.algorithms.soo.nonconvex.ga import GA
 from pymoo.algorithms.soo.nonconvex.nelder import NelderMead
-from pymoo.factory import get_termination
+from pymoo.termination import get_termination
+from pymoo.termination.default import DefaultSingleObjectiveTermination
 from pymoo.core.problem import Problem
 from pymoo.optimize import minimize
 from pymoo.core.sampling import Sampling
@@ -385,7 +386,13 @@ def determine_weights_and_biases_rga(X, Y, abs_flag=0, data_weights = None):
         data = np.concatenate((X, data_weights.reshape(len(Y),1), Y.reshape(len(Y),1)), axis = 1)
     problem = SplitQualityProblem(n_var=n_vars, data=data, abs_flag = abs_flag)
     #....running GA...
-    termination = get_termination("f_tol", tol=0.01, n_last=5, n_max_gen=50, nth_gen=5)
+    termination = DefaultSingleObjectiveTermination(
+        ftol=0.01,
+        xtol=1e-6,
+        period=5,
+        n_max_gen=50,
+        n_max_evals=100000
+    )
 
     algorithm = GA(
         pop_size=40,
@@ -417,7 +424,13 @@ def determine_weights_and_biases_nelder_pymoo(X, Y, abs_flag=0):
     data = np.concatenate((X, Y.reshape(len(Y),1)), axis=1)
     problem = SplitQualityProblem(n_var=n_vars, data=data, abs_flag = abs_flag)
     #....running GA...
-    termination = get_termination("f_tol", tol=0.01, n_last=5, n_max_gen=50, nth_gen=5)
+    termination = DefaultSingleObjectiveTermination(
+        ftol=0.01,
+        xtol=1e-6,
+        period=5,
+        n_max_gen=50,
+        n_max_evals=100000
+    )
 
     # ..initial pt..
     id_array = np.arange(len(Y))

@@ -17,7 +17,6 @@ global_params = GlobalParameters()
 if __name__ == '__main__':
     #...Global Parameters...
     data_name = 'iris'
-    n_features = 4
     max_depth = 3
     n_classes = 3
 
@@ -43,20 +42,14 @@ if __name__ == '__main__':
 
     my_data = pd.read_csv(data_file, header = None)
 
-    features = my_data.iloc[:, :n_features]
+    features = my_data.iloc[:, :-1]
     action_array = my_data.iloc[:, -1]
     print('Data Loaded')
 
     training_data_X = np.array(features)
     training_data_Y = action_array
 
-    if global_params.impurity_measure == 'weighted_gini':
-        q_values = np.array(my_data.iloc[:,n_features:-1])
-        data_weights = np.max(q_values,axis = 1)
-        #..normalize between 1 and 10
-        data_weights = 1 + 9*(data_weights - np.min(data_weights))/(np.max(data_weights) - np.min(data_weights))
-    else:
-        data_weights = None
+    data_weights = None
 
     #..Done with data-loading...
 
