@@ -43,11 +43,11 @@ if __name__ == '__main__':
     my_data = pd.read_csv(data_file, header = None)
 
     features = my_data.iloc[:, :-1]
-    action_array = my_data.iloc[:, -1]
+    class_array = my_data.iloc[:, -1]
     print('Data Loaded')
 
     training_data_X = np.array(features)
-    training_data_Y = action_array
+    training_data_Y = class_array
 
     data_weights = None
 
@@ -65,13 +65,13 @@ if __name__ == '__main__':
     t1 = time.perf_counter()
     for run in range(n_runs):
         print('run = ', run)
-        my_tree.train_tree(features = training_data_X,
-                           class_labels= action_array,
-                           max_depth= max_depth,
-                           min_size= min_size,
-                           tau_impurity= tau_impurity,
-                           class_dict = class_dict,
-                           training_data_share = training_data_share,
+        my_tree.train_tree(features=training_data_X,
+                           class_labels=class_array,
+                           max_depth=max_depth,
+                           min_size=min_size,
+                           tau_impurity=tau_impurity,
+                           class_dict=class_dict,
+                           training_data_share=training_data_share,
                            data_weights=data_weights)
 
         print('total number of nodes = ', my_tree.tree['total_nodes'])
@@ -88,11 +88,11 @@ if __name__ == '__main__':
 
         training_accuracy = dt_funcs.compute_accuracy_from_c_label(my_tree,
                                                                    training_data_X[train_ids,:],
-                                                                   action_array.iloc[train_ids])
+                                                                   class_array.iloc[train_ids])
 
         testing_accuracy = dt_funcs.compute_accuracy_from_c_label(my_tree,
                                                                    training_data_X[test_ids, :],
-                                                                   action_array.iloc[test_ids])
+                                                                  class_array.iloc[test_ids])
 
         print('prediction accuracy')
         print('Training = %.2f' % training_accuracy)
